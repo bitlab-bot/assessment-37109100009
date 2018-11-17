@@ -10,3 +10,19 @@ Create a fork of this repository and then open a pull request when you're done.
 4. This function should also connect to the following API https://rickandmortyapi.com/ and retrieve all available episodes.
 5. Group the episodes by year (air date) and output those groups in the html.
 6. Create tests for this function.
+
+## Usage
+
+### Installation
+
+To get required libraries up and running.
+
+```bash
+pip install -r requirements.txt
+```
+
+### Running the test suite.
+
+```bash
+python -m pytest
+```
