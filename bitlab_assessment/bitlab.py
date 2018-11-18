@@ -27,10 +27,10 @@ def create_html_content(episodes):
     out = '<html><head></head><body>{}</body></html>'
     sections = []
     for key, season_episodes in groupby(episodes, key=lambda x: x['air_date'][-4:]):
-        header = '<h2>{}.<h2>\n'.format('Episodes {}'.format(key))
+        header = '<h2>{}.</h2>\n'.format('Episodes {}'.format(key))
         content = '<ul>'
         for se in season_episodes:
-            content += '<li><strong>Name</strong>: {}, <strong>Air-Date</strong>: {}</li>\n'.format(
+            content += '<li><strong>Episode</strong>: {} (aired: {})</li>\n'.format(
                 se['name'], se['air_date'])
         content += '</ul>'
         section = '{}{}'.format(header, content)
