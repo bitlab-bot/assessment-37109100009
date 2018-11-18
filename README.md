@@ -24,5 +24,11 @@ pip install -r requirements.txt
 ### Running the test suite.
 
 ```bash
-python -m pytest
+python setup.py test
+```
+
+### Installing and Testing the binary executable
+
+```
+python setup.py install
 ```
