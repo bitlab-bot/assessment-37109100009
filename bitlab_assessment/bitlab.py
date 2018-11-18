@@ -27,10 +27,10 @@ def create_html_content(episodes):
     out = '<html><head></head><body>{}</body></html>'
     sections = []
     for key, season_episodes in groupby(episodes, key=lambda x: x['air_date'][-4:]):
-        header = '<h2>{}.<h2>\n'.format('Episodes {}'.format(key))
+        header = '<h2>{}.</h2>\n'.format('Episodes {}'.format(key))
         content = '<ul>'
         for se in season_episodes:
-            content += '<li><strong>Name</strong>: {}, <strong>Air-Date</strong>: {}</li>\n'.format(
+            content += '<li><strong>Episode</strong>: {} (aired: {})</li>\n'.format(
                 se['name'], se['air_date'])
         content += '</ul>'
         section = '{}{}'.format(header, content)
@@ -47,7 +47,10 @@ class RickAndMortyHtmlFile:
 
     @staticmethod
     def create(target_filepath='./test.html'):
-        print('Creating the html file: test.html.')
+        """
+        Creates a file which contains an ordered list of Rick and Morty episodes, grouped by year.
+        """
+        print('Creating the html file: {}'.format(target_filepath))
         episodes = fetch_episodes()
         html_content = create_html_content(episodes)
         create_html_file(target_filepath, html_content)
@@ -63,7 +66,7 @@ def cleanup(file):
     return 'Done'
 
 
-if __name__ == "__main__":
+def main():
     argv = sys.argv[1:]
     try:
         opts, args = getopt.getopt(
@@ -83,5 +86,4 @@ if __name__ == "__main__":
                 cleanup(arg)
                 sys.exit()
     else:
-        rmf = RickAndMortyHtmlFile()
-        rmf.create()
+        RickAndMortyHtmlFile.create()
