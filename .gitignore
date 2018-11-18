@@ -1,5 +1,6 @@
 assessment/
 .vscode/
+build/
 
 __pycache__/
 sandbox/

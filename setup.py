@@ -44,6 +44,7 @@ packages = ['bitlab_assessment']
 requires = []
 test_requirements = [
     'pytest-cov',
+    'pytest-xdist',
     'pytest>=3.8.0'
 ]
 
@@ -65,6 +66,9 @@ setup(
     include_package_data=True,
     python_requires=">=2.6",
     install_requires=requires,
+    entry_points = {
+        'console_scripts': ['bitlab=bitlab_assessment.bitlab:main']
+    },
     license='MIT',
     zip_safe=False,
     classifiers=[
